@@ -309,7 +309,10 @@ func main() {
 	fmt.Println()
 
 	if err := cmd.Run(); err != nil {
-		fail("Carthage command failed, error: %s", err)
+		log.Infof("Carthage first run failed.")
+		if err := cmd.Run(); err != nil {
+			fail("Carthage command failed, error: %s", err)
+		}
 	}
 	// ---
 
