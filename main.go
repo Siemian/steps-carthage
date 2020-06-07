@@ -309,7 +309,10 @@ func main() {
 	fmt.Println()
 
 	if err := cmd.Run(); err != nil {
-		log.Infof("Carthage first run failed.")
+		log.Infof("Carthage first run failed. Retrying.")
+		// Workaround until new version of carthage is released.
+        // https://github.com/Carthage/Carthage/pull/2908
+        // Retry carthage operation when it fails.
 		if err := cmd.Run(); err != nil {
 			fail("Carthage command failed, error: %s", err)
 		}
