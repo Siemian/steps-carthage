@@ -7,7 +7,7 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
-
+	"time"
 	"github.com/bitrise-io/go-steputils/cache"
 	"github.com/bitrise-io/go-steputils/stepconf"
 	"github.com/bitrise-io/go-utils/command"
