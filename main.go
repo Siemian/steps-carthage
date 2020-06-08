@@ -313,6 +313,10 @@ func main() {
 		// Workaround until new version of carthage is released.
         // https://github.com/Carthage/Carthage/pull/2908
         // Retry carthage operation when it fails.
+        cmd := command.New("carthage", args...)
+        cmd.SetStdout(os.Stdout)
+		cmd.SetStderr(os.Stderr)
+		time.Sleep(1000 * time.Millisecond)
 		if err := cmd.Run(); err != nil {
 			fail("Carthage command failed, error: %s", err)
 		}
